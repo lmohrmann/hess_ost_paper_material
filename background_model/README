@@ -1,0 +1,24 @@
+This repository contains data released as supplementary material to the
+following paper:
+"Validation of open-source science tools and background model construction in
+gamma-ray astronomy"
+(L. Mohrmann et al., accepted in A&A, 2019)
+
+The data comprise three-dimensional model templates for the residual cosmic-ray
+background in all observations that are part of the first H.E.S.S. public test
+data release (see https://www.mpi-hd.mpg.de/hfm/HESS/pages/dl3-dr1).
+
+The templates are stored in FITS files in the "data" sub-directory. A HDU table
+indexing all files is contained in "hdu-index.fits.gz".
+
+The file also contains a python script that, if provided with the location of
+the public H.E.S.S. data set, will copy the background model FITS files into
+that directory and generate an updated hdu-index.fits.gz file. It should be
+executed the following way:
+python update_hess_dl3_dr1_hdu_index.py /path/to/this/dir /path/to/hess/dr1/data
+(Note that the `astropy` package needs to be installed for this script to work.)
+
+The files have been prepared following the data format definitions specified at
+this page:
+https://gamma-astro-data-formats.readthedocs.io/en/v0.2/irfs/full_enclosure/bkg/
+index.html#bkg-3d
