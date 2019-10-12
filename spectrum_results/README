@@ -1,0 +1,57 @@
+This repository contains data released as supplementary material to the
+following paper:
+"Validation of open-source science tools and background model construction in
+gamma-ray astronomy"
+(L. Mohrmann et al., accepted in A&A, 2019)
+
+The data comprise tabulated results of the spectral analyses performed in the
+paper. For each analysis, the results of a power-law fit as well as spectral
+points are available.
+
+The results are stored in ASCII text files that follow the following naming
+scheme:
+    <analysis_tool>_<source>_<analysis_type>_<result_type>.dat
+
+Here,
+- <analysis_tool> can be one of
+    - "hap": HAP, a H.E.S.S.-internal analysis software program
+    - "ctools": ctools (v1.6.0), see http://cta.irap.omp.eu/ctools
+    - "gammapy": Gammapy (v0.12), see https://gammapy.org
+- <source> can be one of
+    - "crab": the Crab nebula
+    - "msh1552": MSH 15-52
+    - "pks2155": PKS 2155-304
+    - "rxj1713": RX J1713.7-3946
+- <analysis_type> can be one of
+    - "1d": 1D spectral analysis using the reflected background method
+    - "3d": 3D template analysis
+      (Note: for "msh1552" as <source>, use "3d_disk" or "3d_excess" to
+       distinguish between the results for the two different source models
+       employed. See the paper for more details.)
+- <result_type> can be one of
+    - "powerlaw": Best-fit parameters of the fitted power-law model
+    - "spectral_points": Best-fit values for the spectral points
+
+The files giving the results of the power-law fits are structured as follows:
+
+# Phi [TeV-1 cm-2 s-1]  # Delta Phi [TeV-1 cm-2 s-1]  # Gamma        # Delta Gamma  # E_0 [TeV]
+<value>                 <value>                       <value>        <value>        <value>
+
+"Phi" and "Gamma" are the two fitted parameters of the power-law model, with
+corresponding (68% CL) uncertainties "Delta Phi" and "Delta Gamma". "E_0"
+gives the pivot energy, which is kept fixed in the fit.
+
+The files giving the spectral points are structured as follows:
+
+# E [TeV]      # E low [TeV]  # E high [TeV] # Phi [TeV-1 cm-2 s-1]  # Phi low [TeV-1 cm-2 s-1]  # Phi high [TeV-1 cm-2 s-1] # UL
+<value>        <value>        <value>        <value>                 <value>                     <value>                     <0/1>
+<value>        <value>        <value>        <value>                 <value>                     <value>                     <0/1>
+...
+
+Each row corresponds to one spectral point. The first three columns ("E",
+"E low", and "E high") specify the energies of the spectral points, with their
+lower and upper bounds. The next three columns ("Phi", "Phi low", and
+"Phi high") give the best-fit flux with the corresponding uncertainty interval
+(68% CL). The last column ("UL") can be "0" or "1" and specifies whether a
+flux upper limit was derived for this energy ("Phi low" and "Phi high" are set
+to "-1" in this case).
