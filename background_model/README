@@ -20,5 +20,4 @@ python update_hess_dl3_dr1_hdu_index.py /path/to/this/dir /path/to/hess/dr1/data
 
 The files have been prepared following the data format definitions specified at
 this page:
-https://gamma-astro-data-formats.readthedocs.io/en/v0.2/irfs/full_enclosure/bkg/
-index.html#bkg-3d
+https://gamma-astro-data-formats.readthedocs.io/en/v0.2/irfs/full_enclosure/bkg/index.html#bkg-3d
