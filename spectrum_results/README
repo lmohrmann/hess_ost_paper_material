@@ -8,6 +8,10 @@ The data comprise tabulated results of the spectral analyses performed in the
 paper. For each analysis, the results of a power-law fit as well as spectral
 points are available.
 
+Flux points have been computed with a fixed binning of eight bins per decade
+of energy in all cases. Internally, the fits were carried out using a binning
+with 24 bins per decade of energy.
+
 The results are stored in ASCII text files that follow the following naming
 scheme:
     <analysis_tool>_<source>_<analysis_type>_<result_type>.dat
